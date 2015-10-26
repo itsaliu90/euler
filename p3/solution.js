@@ -1,16 +1,14 @@
-//Let n be the number we are testing
+// This is a function that returns all the prime factors of a given number in any array.
 
-function findFactorsOf(number) {
-    var array = []
+function findPrimeFactorsOf(number) {
+
+    var array = [] // This is where we store the prime factors
     
     function updateArrayWithFactorsOf(number) {
     	for (var i = 2; i <= number; i++) {
-    		console.log("Current value of i is: ", i)
-    		console.log("The number is: ", number)
     		if (number % i === 0 && i != number) {
     		    array.push(i)
     			var largerFactor = number/i
-    			console.log("ENTERING LOOP!")
     			updateArrayWithFactorsOf(largerFactor)
     			break;
     		} else if (i === number) {
@@ -20,6 +18,7 @@ function findFactorsOf(number) {
     }
 
     updateArrayWithFactorsOf(number);
+
     return array
 }
 
