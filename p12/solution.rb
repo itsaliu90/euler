@@ -1,3 +1,5 @@
+require 'prime'
+
 i = 1
 
 def calculate_ith_triangle_number(i)
@@ -10,15 +12,18 @@ def calculate_ith_triangle_number(i)
 end
 
 def calculate_number_of_divisors(n)
-    number_of_divisors = 0
-    i = 1
-    while i <= n
-        if n%i == 0
-            number_of_divisors += 1
-        end
-        i += 1
-    end
+    prime_factor_array = n.prime_division
+    number_of_divisors = prime_factor_array.inject(1) {|current, element| current * (element[1] + 1)}
     return number_of_divisors
+    #number_of_divisors = 0
+    #i = 1
+    #while i <= n
+    #    if n%i == 0
+    #        number_of_divisors += 1
+    #    end
+    #    i += 1
+    #end
+    #return number_of_divisors
 end
 
 while true
